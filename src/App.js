@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import ExpenseForm from './components/ExpenseForm';
+import ExpenseList from './components/ExpenseList';
+import Header from './components/Header';
+import Reports from './components/Reports';
+import { Route, Routes } from 'react-router-dom';
+import Home from './pages/Home';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div className="container mx-auto">
+        <Routes>
+          <Route path="/" exact={true} element={<Home />} />
+          <Route path="/expenses" exact={true} element={<ExpenseList />} />
+          <Route path="/reports" exact={true} element={<Reports />} />
+
+          <Route path="*" exact={true} element={<Home />} />
+
+        </Routes>
+      </div>
+    </>
   );
 }
 
